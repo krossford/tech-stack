@@ -228,3 +228,125 @@ p::first-letter {
 </details>
 
 ## 5.属性选择器
+
+<details>
+<summary>[attribute] 选择所有具备 attribute 属性的元素</summary>
+
+```css
+[id] {
+    font-size: 200%;
+    color: #8A2BE2;
+}
+```
+```
+<p id="a">会被选中</p>
+<p >不会被选中</p>
+```
+
+</details>
+
+<details>
+<summary>[attribute="value"] 选择具备 attribute 属性和 value 的元素</summary>
+
+```css
+[id="a"] {
+    font-size: 200%;
+    color: #8A2BE2;
+}
+```
+```html
+<p id="a">会被选中</p>
+<p id="b">不会被选中</p>
+```
+
+</details>
+
+<details>
+<summary>[attribute~="value"] 选择具备 attribute 属性和属性值以空格隔开后能匹配value的元素</summary>
+
+```css
+[id~="a"] {
+    font-size: 200%;
+    color: #8A2BE2;
+}
+```
+```html
+<p id="a">会被选中</p>
+<p id="b a">会被选中</p>
+<p id="b-a">不会被选中</p>
+```
+
+</details>
+
+<details>
+<summary>[attribute|="value"] 选择具备 attribute 属性和属性值以 value “开头”的元素</summary>
+
+value 必须是整个属性值的“一整块”，而不能是一部分，“一整块”的意思是，可以用`-`分隔。
+
+```css
+[id=|"a"] {
+    font-size: 200%;
+    color: #8A2BE2;
+}
+```
+```html
+<p id="a">会被选中</p>
+<p id="ab">不会被选中</p>
+<p id="a-b">会被选中</p>
+```
+
+</details>
+
+<details>
+<summary>[attribute^="value"] 选择具备 attribute 属性和属性值 startWith(value) 的元素</summary>
+
+value 是真正的开头了，后面可以有任何东西，也可以没有。
+
+```css
+[id^="a"] {
+    font-size: 200%;
+    color: #8A2BE2;
+}
+```
+```html
+<p id="a">会被选中</p>
+<p id="ab">会被选中</p>
+<p id="a-b">会被选中</p>
+```
+
+</details>
+
+<details>
+<summary>[attribute$="value"] 选择具备 attribute 属性和属性值 endWith(value) 的元素</summary>
+
+```css
+[id$="a"] {
+    font-size: 200%;
+    color: #8A2BE2;
+}
+```
+```html
+<p id="a">会被选中</p>
+<p id="ba">会被选中</p>
+<p id="b-a">会被选中</p>
+```
+
+</details>
+
+<details>
+<summary>[attribute*="value"] 选择具备 attribute 属性和属性值 contains(value) 的元素</summary>
+
+```css
+[id*="a"] {
+    font-size: 200%;
+    color: #8A2BE2;
+}
+```
+```html
+<p id="a">会被选中</p>
+<p id="ba">会被选中</p>
+<p id="b-a">会被选中</p>
+<p id="aba">会被选中</p>
+```
+
+</details>
