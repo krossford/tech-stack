@@ -2,9 +2,9 @@
 
 ### 目录
 * 数据结构与算法
-    * [sieve of Eratosthenes 素数筛选法](algo/sieve_of_eratosthenes.md)
+    * [sieve of Eratosthenes 素数筛选法](doc/algo/sieve_of_eratosthenes.md)
 * Front End
-    * [CSS](front_end/css.md)
+    * [CSS](doc/front_end/css.md)
     * JavaScript
 * Android
     * Java

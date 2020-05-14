@@ -1,37 +1,11 @@
-# CSS
+# CSS-选择器
 
 目录
-* [定义](#定义)
-* [选择器](#选择器)
-    * [简单选择器](#简单选择器)
-    * [组合选择器](#组合选择器)
-    * [Pseudo Classes Selector](#Pseudo&#160;Classes&#160;Selector)
-
-
-## 定义
-CSS 的全称是Cascading Style Sheets，中文译名为层叠样式表，用来定义 HTML 页面的样式。
-
-```css
-body {
-    background-color: lightblue;
-}
-
-h1 {
-    color: white;
-    text-align: center;
-}
-```
-
-CSS 的语法规则大致可以描述为：
-```css
-selector {
-    property: value
-}
-```
-
-selector 意为选择器，即选中 HTML 中哪些元素，要应用花括号中的样式。
-
-## 选择器
+* [1.简单选择器](#1.简单选择器)
+* [2.组合选择器](#2.组合选择器)
+* [3.Pseudo Classes Selector](#3.Pseudo-Classes-Selector)
+* [4.Pseudo Elements Selector](#4.Pseudo-Elements-Selector)
+* [5.属性选择器](#5.属性选择器)
 
 选择器大体上可以分为 5 类：
 * 简单选择器：基于元素的名字、id 或者 class
@@ -40,7 +14,7 @@ selector 意为选择器，即选中 HTML 中哪些元素，要应用花括号�
 * 伪元素选择器：基于元素的特定位置
 * 属性选择器：基于元素的属性
 
-### 简单选择器
+## 1.简单选择器
 
 <details>
 <summary>通过标签名进行选择</summary>
@@ -101,7 +75,7 @@ h1, h2, p {
 
 </details>
 
-### 组合选择器
+## 2.组合选择器
 
 组合选择器通过描述元素之间的关系来选择。
 
@@ -172,7 +146,7 @@ div ~ p { ... } /* 所有跟在 div 后面的 p 都会被选中 */
 
 </details>
 
-### Pseudo Classes Selector
+## 3.Pseudo Classes Selector
 
 伪类选择器有很多，大体上可以分类一下：
 
@@ -203,4 +177,54 @@ div ~ p { ... } /* 所有跟在 div 后面的 p 都会被选中 */
     * :target
     * :lang(language)
 
-### Pseudo Elements Selector
+## 4.Pseudo Elements Selector
+
+直译为伪元素选择器，伪元素，就是不是真正的元素，它可以用来指定元素中一部分内容的样式。
+
+<details>
+<summary>::before，::after，在某个标签前面、后面插入一些内容</summary>
+
+```css
+h1::after {
+  content: url(smiley.gif);
+}
+```
+
+```html
+<h1>abc</h1>
+```
+
+效果如图
+
+![xxx](../img/img_css_after_example.png)
+
+</details>
+
+<details>
+<summary>::selection，对框选的部分应用样式</summary>
+
+```css
+p::selection {
+    color: blue; /* 选中的文字变成蓝色 */
+}
+```
+
+</details>
+
+<details>
+<summary>::first-letter，::first-line 如字面意思，第一个字符和第一行会应用样式</summary>
+
+```css
+p::first-letter {
+    font-size: 200%;
+    color: #8A2BE2;
+}
+```
+```
+<p>My name is Donald.</p>
+```
+![xxx](../img/img_css_first_letter.png)
+
+</details>
+
+## 5.属性选择器
