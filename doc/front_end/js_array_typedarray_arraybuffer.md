@@ -1,4 +1,4 @@
-# k1. JS 中的 Array、TypedArray 和ArrayBuffer
+# JS 中的 Array、TypedArray 和ArrayBuffer
 
 ## Array
 JS 中的 Array 是一个类似于列表的实现，它可以增加元素和删掉元素，如 `push`, `pop`。最大的特性是动态的，并且可以存储任何类型的数据。
