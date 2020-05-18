@@ -10,18 +10,10 @@
         * [CSS 选择器](doc/front_end/css_selector.md)
     * JavaScript
         * 数据结构
-            * [k1.JS 中的 Array、TypedArray 和ArrayBuffer](doc/front_end/k1.js_array_typedarray_arraybuffer.md)
+            * [JS 中的 Array、TypedArray 和ArrayBuffer](doc/front_end/js_array_typedarray_arraybuffer.md)
 * Android
     * Java
         * [类的初始化顺序](doc/java/class_init.md)
     * Kotlin
 * 计算机网络
     * [什么是 URI](doc/net/uri.md)
-
-### 关于此文档
-
-我的技术栈：此项目专注于描述我了解什么以及了解到什么程度。
-
-编写此文档时所需要注意的地方：
-* 精简：这不是教程，需要用单刀直入的方式描述知识点。
-* 分类：按知识点进行分类，方便查阅。
