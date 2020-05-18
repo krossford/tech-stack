@@ -15,7 +15,7 @@ arr2.push(100);
 
 TypedArray 是一系列指定了每个元素大小的数组，如：`Uint8Array`，说的是这个数组里面，每个元素都是 8 位的 uint 值。
 
-TypedArray 有很多种类型，名字里面的数组表示的都是 bit 数。
+TypedArray 有很多种类型，名字里面的数字表示的都是 bit 数。
 
 ```javascript
 Int8Array();
