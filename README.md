@@ -12,6 +12,8 @@
     * JavaScript
         * 数据结构
             * [JS 中的 Array、TypedArray 和ArrayBuffer](doc/front_end/js_array_typedarray_arraybuffer.md)
+    * React
+        * [React 的安装](doc/front_end/react/install.md)
 * Android
     * Java
         * [类的初始化顺序](doc/java/class_init.md)
