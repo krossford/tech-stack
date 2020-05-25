@@ -1,6 +1,14 @@
 # sieve of Eratosthenes 素数筛选法
 
-问题：如何找到 [0, n] 之间的所有素数？
+## 前置知识
+在阅读此文档前，你需要知道：
+* [素数与合数](../math/prime_number_and_composite_number.md)
+
+## sieve of Eratosthenes 素数筛选法是什么？
+
+sieve of Eratosthenes 素数筛选法是一种找出指定范围内所有素数的方法。
+
+现在给出一个问题：如何找到 [0, n] 之间的所有素数？
 
 当然是可以一个个去试的，但是这样是很低效的，因为每个都需要去挨个挨个的整除。
 
