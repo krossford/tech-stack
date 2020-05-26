@@ -26,3 +26,5 @@
     * 位操作技巧
 * 数学
     * [素数与合数](doc/math/prime_number_and_composite_number.md)
+* 硬件接口
+    * VGA 是如何工作的？
