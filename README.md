@@ -27,4 +27,7 @@
 * 数学
     * [素数与合数](doc/math/prime_number_and_composite_number.md)
 * 硬件接口
-    * VGA 是如何工作的？
+    * [VGA 是如何工作的？](doc/hardware/how_vga_works.md)
+
+
+[挖坑](todo.md)
