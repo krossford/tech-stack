@@ -18,7 +18,7 @@
 * 计算机网络
     * [什么是 URI](doc/net/uri.md)
 * 操作系统
-    * Linux 内核
+    * [Linux 内核](doc/os/linux_kernel.md)
 * 图形
     * [贝塞尔曲线的实现](doc/cg/bezier.md)
 * 数据结构与算法
