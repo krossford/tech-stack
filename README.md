@@ -19,7 +19,11 @@
     * [什么是 URI](doc/net/uri.md)
 * 操作系统
     * [Linux 内核](doc/os/linux_kernel.md)
-* 图形
+* 计算机图形学
+    * [采样和走样]()
+    * [着色-Shading]()
+        * 遮挡与深度
+        * 漫反射
     * [贝塞尔曲线的实现](doc/cg/bezier.md)
 * 数据结构与算法
     * [sieve of Eratosthenes 素数筛选法](doc/algo/sieve_of_eratosthenes.md)
@@ -28,6 +32,11 @@
     * 位操作技巧
 * 数学
     * [素数与合数](doc/math/prime_number_and_composite_number.md)
+    * [向量](doc/math/vector.md)
+    * [集合](doc/math/set.md)
+    * [区间]
+    * [一元二次方程]
+    * [三角学]
 * 硬件接口
     * [VGA 是如何工作的？](doc/hardware/how_vga_works.md)
 
