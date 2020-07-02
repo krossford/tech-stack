@@ -9,8 +9,13 @@
     * JavaScript
         * 数据结构
             * [JS 中的 Array、TypedArray 和ArrayBuffer](doc/front_end/js_array_typedarray_arraybuffer.md)
+        * [在 JS 中使用 HTTP 请求的方法](doc/front_end/http_in_js.md)
     * React
         * [React 的安装](doc/front_end/react/install.md)
+* Backend
+    * NodeJS
+        * [如何通过 yum 安装最新的 NodeJS]()
+        * Express: 一个 web 框架
 * Android
     * Java
         * [类的初始化顺序](doc/java/class_init.md)
