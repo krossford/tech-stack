@@ -16,7 +16,10 @@
         * [类的初始化顺序](doc/java/class_init.md)
     * Kotlin
 * IOS
-    * [IOS 中使用 UIGraphics 对图像做变换](../doc/../tech-stack/doc/ios/ui_graphics_context_coordination_system.md)
+    * Swift
+        * [guard 语句](doc/ios/swift/guard.md)
+    * [Quartz 2D](doc/ios/quartz_2d.md)
+        *  [IOS 中使用 UIGraphics 对图像做变换](doc/ios/ui_graphics_context_coordination_system.md)
 * 计算机网络
     * [什么是 URI](doc/net/uri.md)
 * 操作系统
@@ -36,9 +39,9 @@
     * [素数与合数](doc/math/prime_number_and_composite_number.md)
     * [向量](doc/math/vector.md)
     * [集合](doc/math/set.md)
-    * [区间]
-    * [一元二次方程]
-    * [三角学]
+    * [区间]()
+    * [一元二次方程]()
+    * [三角学]()
 * 硬件接口
     * [VGA 是如何工作的？](doc/hardware/how_vga_works.md)
 
