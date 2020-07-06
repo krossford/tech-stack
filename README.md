@@ -25,6 +25,7 @@
         * [guard 语句](doc/ios/swift/guard.md)
     * [Quartz 2D](doc/ios/quartz_2d.md)
         *  [IOS 中使用 UIGraphics 对图像做变换](doc/ios/ui_graphics_context_coordination_system.md)
+    * [Core Animation](doc/ios/core_animation.md)
 * 计算机网络
     * [什么是 URI](doc/net/uri.md)
 * 操作系统
