@@ -48,6 +48,8 @@
     * [区间]()
     * [一元二次方程]()
     * [三角学]()
+* 密码学
+    * [为什么接口都要设计一个 nonce](doc/cryptographic/nonce.md)
 * 硬件接口
     * [VGA 是如何工作的？](doc/hardware/how_vga_works.md)
 
