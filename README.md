@@ -26,6 +26,9 @@
     * [Quartz 2D](doc/ios/quartz_2d.md)
         *  [IOS 中使用 UIGraphics 对图像做变换](doc/ios/ui_graphics_context_coordination_system.md)
     * [Core Animation](doc/ios/core_animation.md)
+    * [showing vs presenting a View Controller](doc/ios/showing_vs_presenting.md)
+    * [presenting vs presented](doc/ios/presenting_vs_presented.md)
+    * [相机能力参考](https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html#//apple_ref/doc/uid/TP40013599-CH17-SW1)
 * 计算机网络
     * [什么是 URI](doc/net/uri.md)
 * 操作系统
@@ -52,6 +55,8 @@
     * [为什么接口都要设计一个 nonce](doc/cryptographic/nonce.md)
 * 硬件接口
     * [VGA 是如何工作的？](doc/hardware/how_vga_works.md)
+* 机器学习
+    * [Regression](doc/ml/regression.md)
 
 
 [挖坑](todo.md)
