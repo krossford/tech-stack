@@ -16,6 +16,7 @@
     * NodeJS
         * [如何通过 yum 安装最新的 NodeJS]()
         * Express: 一个 web 框架
+    * [服务器运维](服务器运维.md)
 * Android
     * Java
         * [类的初始化顺序](doc/java/class_init.md)
@@ -48,6 +49,7 @@
     * [素数与合数](doc/math/prime_number_and_composite_number.md)
     * [向量](doc/math/vector.md)
     * [集合](doc/math/set.md)
+    * [函数](doc/math/函数.md)
     * [区间]()
     * [一元二次方程]()
     * [三角学]()
