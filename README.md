@@ -50,6 +50,7 @@
     * [向量](doc/math/vector.md)
     * [集合](doc/math/set.md)
     * [函数](doc/math/函数.md)
+    * [数列](doc/math/数列.md)
     * [区间]()
     * [一元二次方程]()
     * [三角学]()
