@@ -22,6 +22,8 @@
         * [类的初始化顺序](doc/java/class_init.md)
     * Kotlin
 * IOS
+    * Metal
+        * [Metal 概念](doc/ios/metal/metal概念.md)
     * Swift
         * [guard 语句](doc/ios/swift/guard.md)
     * [Quartz 2D](doc/ios/quartz_2d.md)
