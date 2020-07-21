@@ -37,6 +37,7 @@
 * 操作系统
     * [Linux 内核](doc/os/linux_kernel.md)
 * 计算机图形学
+    * [图形学理论基础](doc/cg/图形学理论基础.md) 
     * [采样和走样]()
     * [着色-Shading]()
         * 遮挡与深度

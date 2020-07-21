@@ -1,10 +1,10 @@
-# Metal 概念
+# Metal 开发
 
 在 GPU 中所有执行的代码都被称为 shader，因为历史原因，本来在 GPU 中执行的都是进行着色的任务，所以被称为着色器 shader。但其实也可以做一些别的事情。
 
-## 1. Shader 语法
+## <1> Shader 语法
 
-### 1.1. 关键字
+### <1.1> 关键字
 
 #### kernel
 
@@ -17,7 +17,7 @@
 #### device 
 device 表示这个数据是位于这个 device 的地址空间。GPU 可以读写这个内存。
 
-### 1.2. 属性修饰符
+### <1.2> 属性修饰符
 
 #### [[thread_position_in_gird]] 
 是系统提供的，
@@ -25,12 +25,43 @@ device 表示这个数据是位于这个 device 的地址空间。GPU 可以读�
 #### [[vertex_id]]
 vertex 方法会被调用多次，这个值由系统提供，系统会为每个 vertex 生成一个唯一的值，可以使用此 id 从你的顶点中 index 出一个当前要处理的顶点。
 
-#### [[buffer(n)]]
-By default, Metal assigns slots in the argument table for each parameter automatically. When you add the `[[buffer(n)]]` qualifier to a buffer argument, you tell Metal explicitly which slot to use. Declaring slots explicitly can make it easier to revise your shaders without also needing to change your app code. Declare the constants for the two indicies in the shared header file.
+#### [[buffer(index)]]
+这个指示符的作用是用来标记 MSL shader 中的参数是哪一个参数，举例说明：
 
+比如在 encoder 中要加入两个参数：
 
+```swift
+encoder?.setVertexBytes(arg1, length: ..., index: 0)
+encoder?.setVertexBytes(arg2, length: ..., index: 1)
+```
 
-## 2. 对象
+那么，我们在 shader 中可以通过 `buffer(index)` 来引用我们添加的参数。
+
+```
+vertex RasterizerData vertexShader(uint vertexID [[vertex_id]],
+                                   constant MyVertex* vertexs [[buffer(0)]],
+                                   constant vector_float2* viewPort [[buffer(1)]])
+```
+
+注意上面代码中 buffer(0) 指的是要引用 encoder 传入的 index: 0 的参数，buffer(1) 也是以此类推。
+
+#### [[stage_in]]
+
+这个指示符表明当前的参数来自上个阶段的输出，示例：
+
+```c++
+// vertex function return RasterizerData 数据
+vertex RasterizerData vertexShader(...)
+
+// fragment function 以上一个 stage 的输出为输入
+fragment float4 fragmentShader(RasterizerData in [[stage_in]])
+```
+
+#### [[positon]]
+
+position 表示这个修饰符修饰的属性是 clip-space 中的坐标。
+
+## <2> 对象
 
 ### Command Queue
 
@@ -40,21 +71,13 @@ By default, Metal assigns slots in the argument table for each parameter automat
 ### Command Encoder
 将命令写入到 buffer 中，encoder是具体加入绘制指令和绘制参数的对象。
 
-
-
-
-
-
-
-
-
-## 3. 渲染管线 Render Pipeline
+## <3> 渲染管线 Render Pipeline
 
 渲染管线有多个步骤组成（stage），这些 stage 有些是可编程的，有些则是固定的行为。如下图所示，render pipeline 的步骤如下：
 
 其中，vertex function 和 fragment function 是可编程的，rasterization 是固定行为。
 
-![](/Users/kross/Documents/github/tech-stack/doc/ios/metal/metal概念_1.png)
+![](/Users/kross/Documents/github/tech-stack/doc/IOS开发/metal/metal概念_1.png)
 
 绘制从一个 drawing command 开始，如下：
 
@@ -70,7 +93,7 @@ fragment 阶段决定每个像素的值是多少。
 
 vertex 为单个顶点生成数据，fragment 也只为单个片段生成数据，但是我们可以决定要如何处理这些过程。
 
-### 3.1. Vertex Function
+### <3.1> Vertex Function
 
 ```c++
 vertex RasterizerData vertexShader(uint vertexID [[vertex_id]],
@@ -85,9 +108,9 @@ vertex RasterizerData vertexShader(uint vertexID [[vertex_id]],
 
 ```
 
-### 3.2. Fragment Function
+### <3.2> Fragment Function
 
-![](/Users/kross/Documents/github/tech-stack/doc/ios/metal/img_fragment_function.png)
+![](/Users/kross/Documents/github/tech-stack/doc/ios开发/metal/img_fragment_function.png)
 
 ```
 fragment float4 fragmentShader(RasterizerData in [[stage_in]])
@@ -97,7 +120,7 @@ fragment float4 fragmentShader(RasterizerData in [[stage_in]])
 
 因为只有一个渲染目标，所以返回值是一个 float4 的向量，这个值的意义是颜色值。
 
-## 4. 如何计算出最佳的线程数
+## <4> 如何计算出最佳的线程数
 
 参考资料：https://developer.apple.com/documentation/metal/calculating_threadgroup_and_grid_sizes
 
@@ -115,6 +138,33 @@ let threadsPerThreadgroup = MTLSizeMake(w, h, 1)
 
 这看起来似乎有点异样，$width \times (max \div width) = max$  ，似乎并不需要做什么特别的计算，直接使用 max 就行了。但是这里的都是整数，假设 max = 100，width = 30，那么，最合适的应该是 $30 \times 取整(100 \div 30) = 90$。
 
-## 5. 坐标转换
+## <5> 坐标转换
 
-![image-20200721180118054](/Users/kross/Documents/github/tech-stack/doc/ios/metal/img_coordinate.png)
+![image-20200721180118054](/Users/kross/Documents/github/tech-stack/doc/IOS开发/metal/img_coordinate.png)
+
+
+
+## <6> 纹理（Texture）
+
+------
+
+纹理本质上是一个结构化的数据集合，比如，图片是一个 2D 的数组，数组元素是颜色值，那么就可以站在纹理的角度说：图片是一个纹理，其结构为 2D 的颜色数组。将纹理绘制到几何图元上的过程称为 texture mapping。fragment function 通过采样的方式来决定每个 fragment 要显示什么颜色。
+
+MTLTexture 表示一个纹理对象，它存储了纹理的类型，结构等各种属性。
+
+MTLTextureDescriptor 表示纹理的一些属性。
+
+### <6.1> 操作
+
+#### a. 创建纹理
+
+ 首先要创建一个 MTLTextureDescriptor 对象，然后通过 device.newTextureWithDescriptor 方法来创建。
+
+新创建的纹理内存是未初始化的，所以创建完之后需要我们拷贝图像数据到纹理对象中。
+
+#### b. 更新纹理
+
+通过 MTLRegion 来指定要更新 Texture 的那一部分。
+
+
+
