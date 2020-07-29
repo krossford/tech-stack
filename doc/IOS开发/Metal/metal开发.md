@@ -4,6 +4,8 @@
 
 ## <1> Shader 语法
 
+------
+
 ### <1.1> 关键字
 
 #### kernel
@@ -61,6 +63,10 @@ fragment float4 fragmentShader(RasterizerData in [[stage_in]])
 
 position 表示这个修饰符修饰的属性是 clip-space 中的坐标。
 
+#### [[texture(index)]]
+
+同 buffer 一样，是用来指定哪一个 texture 的。
+
 ## <2> 对象
 
 ### Command Queue
@@ -72,6 +78,8 @@ position 表示这个修饰符修饰的属性是 clip-space 中的坐标。
 将命令写入到 buffer 中，encoder是具体加入绘制指令和绘制参数的对象。
 
 ## <3> 渲染管线 Render Pipeline
+
+------
 
 渲染管线有多个步骤组成（stage），这些 stage 有些是可编程的，有些则是固定的行为。如下图所示，render pipeline 的步骤如下：
 
@@ -122,6 +130,8 @@ fragment float4 fragmentShader(RasterizerData in [[stage_in]])
 
 ## <4> 如何计算出最佳的线程数
 
+------
+
 参考资料：https://developer.apple.com/documentation/metal/calculating_threadgroup_and_grid_sizes
 
 基于两个属性来考虑，第一个是 pipeline 的 `maxTotalThreadsPerThreadgroup`（单个 thread group 所能持有的最大线程数），另一个是 `threadExecutionWidth`(有多少个线程会被派发到 GPU 上去执行)
@@ -140,9 +150,15 @@ let threadsPerThreadgroup = MTLSizeMake(w, h, 1)
 
 ## <5> 坐标转换
 
+------
+
+在 Metal 文档中，GPU 的坐标系统被称之为 clip-space coordinate。如下面有图所示。
+
 ![image-20200721180118054](/Users/kross/Documents/github/tech-stack/doc/IOS开发/metal/img_coordinate.png)
 
+另一个坐标系统是纹理坐标，纹理坐标是左上角为原点，右下方为正半轴方向的 [0, 1] 之间的规整坐标系。
 
+![纹理坐标系](/Users/kross/Documents/github/tech-stack/doc/IOS开发/Metal/img_texture_coordinate.png)
 
 ## <6> 纹理（Texture）
 
